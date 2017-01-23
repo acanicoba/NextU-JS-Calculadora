@@ -1,0 +1,148 @@
+/*
+
+	    ALFONSO CANICOBA
+	TRABAJO FINAL JAVASCRIPT
+	    NEXT UNIVERSITY
+	      ENERO 2017
+	
+	
+*/
+
+calculadora.init();
+
+var Calculadora = {
+
+//Variables
+
+	var visor,
+	var primerValor = 0,
+	var segundoValor = 0,
+	var Resultado = 0,
+	var Operación = "N",
+	var ultimaTeclaPresionada = "",
+
+	
+	
+(function()	{
+			visor = document.getElementById("display")
+			}
+),	
+
+// 3- Cambiar formato de la tecla presionada
+
+
+	cambioFormatoTecla: function(){
+		document.getElementByClassName('tecla').onClick = function(){
+			//elemento.style.width = "18%";
+			
+		}
+
+	},
+
+	
+function addListeners(){
+	document.onkeypress = function (){
+		grabarUltimaTecla(event);
+		switch(ultimaTeclaPresionada){
+			case 
+		}
+		
+	}
+	
+	
+}
+
+//Almacenar en una variable la última tecla presionada, para ejecutar el evento que corresponda
+
+function grabaUltimaTecla(event){
+	var ultimaTeclaPresionada = String.fromCharCode(event.keyCode);
+},
+	
+//Borrar el visor, inicializa todas las variables, tecla ON/C
+
+function borrarVisor(){
+	this.visor.innerHTML = "0",
+	this.primerValor = 0,
+	this.segundoValor = 0,
+	this.resultado = 0,
+	this.Operación = "N",
+},	
+	
+//Cambiar signo. Tecla +/-
+
+function cambiarSigno(){
+	if (visor.innerHTML=="0") {
+		break;
+	}
+	if (visor.innerHTML.charAt(0)=="-") {
+		visor.innerHTML = visor.innerHTML.slice(1,0);
+	}
+	else {
+		visor.innerHTML = visor.innerHTML.concat("-", visor.innerHTML);
+	}
+},
+	
+//Ingresar decimales. Tecla "."
+
+function ingresoDecimal(){
+	if (visor.innerHTML=="0") {
+		break;
+	}
+	if (visor.innerHTML.indexOf(".")!== -1) {
+		break;
+	}
+	else {
+		visor.innerHTML = visor.innerHTML + ".";
+	}
+},
+
+//Ingreso de números. Teclas de 0 a 9
+
+function ingresoNumero(valor){
+	if (visor.innerHTML.length < 9) {
+		break;
+	}
+	if (visor.innerHTML=="0") {
+		visor.innerHTML = "";
+		visor.innerHTML = visor.innerHTML + valor;
+	} else {
+		visor.innerHTML = visor.innerHTML + valor;
+	}
+},
+
+//Ingreso de operacion. Teclas +, -, *, /, etc...
+
+function ingresoOperacion(){
+	primerValor = parseFloat(visor.innerHTML);
+	operacion = "tecla ingresada";
+},
+
+//Ver Resultado y realizar la operación
+
+function verResultado(){
+	segundoValor = parseFloat(visor.innerHTML);
+	realizarOperacion(primerValor, segundoValor, operacion);
+	primerValor = parseFloat(visor.innerHTML);
+	visor.innerHTML = resultado.toString();
+},
+
+//Función que realiza las operaciones. Se ejecuta al presionar tecla igual "="
+
+function realizarOperacion(primerValor, segundoValor, operacion){
+	Switch(operacion){
+		Case "+": 
+			resultado = primerValor + segundoValor;
+			break;
+		Case "-": 
+			resultado = primerValor - segundoValor;
+			break;
+		Case "*": 
+			resultado = primerValor * segundoValor;
+			break;
+		Case "/": 
+			resultado = primerValor / segundoValor;
+			break;
+		}
+}
+
+}
